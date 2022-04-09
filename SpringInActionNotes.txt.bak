@@ -1,0 +1,42 @@
+1. What is Spring?
+- Spring offers a container, which is the Spring application context that creates and manages application components.
+- The components/beans are wired together inside the spring application context to make the application complete.
+- The wiring of beans together is based on a pattern known as dependency injection. Rather than have components create and maintain the lifecycle of other beans that they depdend on, a dependency injected application relies on a seperate entity (the container) to create and maintain all components and inject them into the beans that need them. This is done through constructor arguments or property accessor methods.
+- To guide the spring's application context to wire beans together was with one or more XML files.
+- Autowiring -> Spring automatically injects the components with the other beans they depdend on.
+- Component Scanning -> Spring automatically finds the components from the application's classpath and create them in Spring application context.
+
+2. Creating a Spring Application
+- From the Web Application - start.spring.io
+
+3. Spring Project Structure
+- mvnw and mvnw.cmd -> Maven Wrapper Scripts, we can use these scripts to build the projects even though yuo do not have maven installed in your application.
+- pom.xml -> Maven Buil Specification.
+- TacoCloudApplication.java -> Spring Boot main class that bootstraps the project.
+- application.properties -> specifies the configuration properties.
+- static -> place where static contents can be placed.
+- templates -> The place where we keep the template files.
+
+4. pom.xml - Initial Maven BUild Specification File
+- packaging -> JAR packaging
+- version -> Spring Boot Version
+- dependency -> starter dependencies
+- plugin -> Spring Boot Plugin.
+
+5. @SpringBootApplication (Class Level Annotation)
+Consists of the following annotations:
+i. @SpringBootConfiguration - Designates the class as a configuration class, we can add a specialized form of @Configuration annotation for making a Java Based configuration.
+ii. @EnableAutoConfiguration - Enables Spring Boot automatic configuration, which tells the Spring Boot to automatically configure any components that it thinks we will need.
+iii. @ComponentScan - Enables Component Scanning, this lets us declare other classes with annotation like @Component, @Controller, @Service and others to have Spring Automatically scan and register them and register them as components in the Spring Application Context.
+
+6. @RunWith(SpringRunner.class) - JUnit annotation, provides the test runner that guides JUnit in running a test.
+7. @Controller - identifies the class as a component for component scanning.
+8. @GetMapping - HTTP GET Request is receieved for a specific path and this method should handle the request.
+9. @WebMvcTest("HomeController.class") - Web Test For HomeController
+
+10. Creating a Controller Class
+i. Handle HTTP GET request where the request path is /design
+ii. Build a list of ingredients
+iii. Hand the request and the ingredient data off to a view template to be rendered as HTML and sent the response to the requesting browser.
+
+11. Handling a GET Request.
